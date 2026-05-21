@@ -1,4 +1,4 @@
-# kabu-station Gmail OTP Helper Public Site
+# kabu-station-gmail-otp-helper-site Public Site
 
 This directory contains the static public pages intended for Google OAuth app homepage and privacy policy review.
 

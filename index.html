@@ -51,6 +51,14 @@
       color: var(--accent);
     }
 
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 18px;
+      font-weight: 600;
+    }
+
     .lede {
       color: var(--muted);
       font-size: 1.05rem;
@@ -91,7 +99,23 @@
       <p class="lede">
         A personal local desktop helper for kabu Station login support. It uses Gmail read-only access to retrieve email two-factor authentication codes on the user's local PC.
       </p>
+      <nav class="top-links" aria-label="Important app links">
+        <a href="https://heart050323.github.io/kabu-station-gmail-otp-helper-site/privacy.html">Privacy Policy</a>
+        <a href="https://heart050323.github.io/kabu-station-gmail-otp-helper-site/terms.html">Terms of Service</a>
+      </nav>
     </header>
+
+    <section class="panel" aria-labelledby="policy-links">
+      <h2 id="policy-links">Policy Links</h2>
+      <p>
+        Privacy Policy:
+        <a href="https://heart050323.github.io/kabu-station-gmail-otp-helper-site/privacy.html">https://heart050323.github.io/kabu-station-gmail-otp-helper-site/privacy.html</a>
+      </p>
+      <p>
+        Terms of Service:
+        <a href="https://heart050323.github.io/kabu-station-gmail-otp-helper-site/terms.html">https://heart050323.github.io/kabu-station-gmail-otp-helper-site/terms.html</a>
+      </p>
+    </section>
 
     <section aria-labelledby="overview">
       <h2 id="overview">Overview / 概要</h2>

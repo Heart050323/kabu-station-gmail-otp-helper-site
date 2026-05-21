@@ -8,6 +8,7 @@ Expected GitHub Pages URLs after enabling Pages from the `main` branch root:
 
 - Homepage: `https://heart050323.github.io/kabu-station-gmail-otp-helper-site/`
 - Privacy Policy: `https://heart050323.github.io/kabu-station-gmail-otp-helper-site/privacy.html`
+- Terms of Service: `https://heart050323.github.io/kabu-station-gmail-otp-helper-site/terms.html`
 
 Configured public contact values:
 

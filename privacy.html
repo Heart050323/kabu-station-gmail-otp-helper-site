@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - kabu-station Gmail OTP Helper</title>
+  <meta name="description" content="Privacy policy for kabu-station Gmail OTP Helper.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2933;
+      --muted: #52616f;
+      --line: #d9e2ec;
+      --accent: #0b7285;
+      --bg: #f8fafc;
+      --paper: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin-top: 32px;
+      font-size: 1.25rem;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+
+    code {
+      background: #eef2f7;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      margin-top: 40px;
+      padding-top: 20px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Privacy Policy</h1>
+      <p class="muted">kabu-station Gmail OTP Helper</p>
+      <p>Effective date: 2026-05-21</p>
+      <p>Contact: <a href="mailto:harutotanaka0323@gmail.com">harutotanaka0323@gmail.com</a></p>
+    </header>
+
+    <section aria-labelledby="collect">
+      <h2 id="collect">Information Collected / 収集する情報</h2>
+      <p>
+        kabu-station Gmail OTP Helper runs on the user's local PC and handles the following information only for kabu Station login support:
+      </p>
+      <ul>
+        <li>Google OAuth authorized user credentials JSON stored locally.</li>
+        <li>Gmail message metadata such as sender, subject, received time, and unread state.</li>
+        <li>The body of matching authentication emails, read temporarily on the local PC for two-factor authentication code extraction.</li>
+        <li>Local runtime logs and session status that do not include the sensitive content listed below.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="gmail">
+      <h2 id="gmail">Gmail API Data Access / Gmail APIで読み取る情報</h2>
+      <p>The tool uses only this Gmail API scope:</p>
+      <p><code>https://www.googleapis.com/auth/gmail.readonly</code></p>
+      <p>It reads:</p>
+      <ul>
+        <li>Gmail labels list for a read-only credential smoke test.</li>
+        <li>Gmail message list filtered by configured sender, subject, unread state, and recency.</li>
+        <li>Metadata and body of matching candidate messages.</li>
+      </ul>
+      <p>
+        The tool does not send, delete, modify, or mark Gmail messages as read.
+      </p>
+    </section>
+
+    <section aria-labelledby="purpose">
+      <h2 id="purpose">Purpose / 利用目的</h2>
+      <p>
+        Gmail data is used only to extract an email two-factor authentication code locally and support the kabu Station login helper flow.
+      </p>
+      <p>
+        Gmail data is not used for advertising, marketing, user tracking, trading decisions, model scoring, scraping, order planning, or broker API calls.
+      </p>
+    </section>
+
+    <section aria-labelledby="storage">
+      <h2 id="storage">Data Storage / データ保存方針</h2>
+      <p>Stored:</p>
+      <ul>
+        <li>Google OAuth authorized user credentials JSON in a local-only directory on the user's PC.</li>
+      </ul>
+      <p>Not stored:</p>
+      <ul>
+        <li>Gmail message body.</li>
+        <li>Extracted authentication codes.</li>
+        <li>Gmail raw payload.</li>
+        <li>kabu Station login information.</li>
+        <li>Broker order API requests or responses.</li>
+      </ul>
+      <div class="panel">
+        The implementation policy is not to write email bodies, authentication codes, login information, or OAuth credential content to documentation, logs, status artifacts, or debug artifacts.
+      </div>
+    </section>
+
+    <section aria-labelledby="sharing">
+      <h2 id="sharing">No Third-Party Sharing / 第三者提供なし</h2>
+      <p>
+        This tool does not sell, share, or provide Gmail data to third parties. The current design is a personal local desktop tool and does not send Gmail data to a third-party server.
+      </p>
+    </section>
+
+    <section aria-labelledby="token">
+      <h2 id="token">Credential Storage and Deletion / Token保存と削除方法</h2>
+      <p>
+        OAuth authorized user credentials JSON is stored on the user's local PC in the configured secrets directory. Default example:
+      </p>
+      <p><code>C:\kabu\secrets\gmail_token.json</code></p>
+      <p>
+        To delete it, close the tool and remove that local file. The OAuth grant flow can be run again later if access is needed.
+      </p>
+    </section>
+
+    <section aria-labelledby="revoke">
+      <h2 id="revoke">Revoking Google Account Access / Googleアカウント連携解除方法</h2>
+      <p>
+        Users can remove this app's access from Google Account third-party access settings:
+      </p>
+      <p><a href="https://myaccount.google.com/permissions">https://myaccount.google.com/permissions</a></p>
+      <p>
+        Users should also delete the local OAuth credentials JSON file from their PC.
+      </p>
+    </section>
+
+    <section aria-labelledby="policy">
+      <h2 id="policy">Google API Services User Data Policy</h2>
+      <p>
+        This tool is designed to comply with the Google API Services User Data Policy. Gmail data is used only for the disclosed purpose of local two-factor authentication code extraction and login support.
+      </p>
+      <p>
+        Gmail data is not used for advertising, is not sold to third parties, and is not intended for human review. Troubleshooting should not include email bodies, authentication codes, login information, or OAuth credential content in logs or reports.
+      </p>
+    </section>
+
+    <footer>
+      <p><a href="index.html">Back to homepage</a></p>
+      <p>Support contact: <a href="mailto:harutotanaka0323@gmail.com">harutotanaka0323@gmail.com</a></p>
+    </footer>
+  </main>
+</body>
+</html>

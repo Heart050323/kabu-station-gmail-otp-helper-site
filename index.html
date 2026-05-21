@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kabu-station Gmail OTP Helper</title>
+  <meta name="description" content="A personal local desktop helper that uses Gmail read-only access to retrieve email two-factor authentication codes for kabu Station login support.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2933;
+      --muted: #52616f;
+      --line: #d9e2ec;
+      --accent: #0b7285;
+      --bg: #f8fafc;
+      --paper: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin-top: 32px;
+      font-size: 1.25rem;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .lede {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 760px;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+
+    code {
+      background: #eef2f7;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      margin-top: 40px;
+      padding-top: 20px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>kabu-station Gmail OTP Helper</h1>
+      <p class="lede">
+        A personal local desktop helper for kabu Station login support. It uses Gmail read-only access to retrieve email two-factor authentication codes on the user's local PC.
+      </p>
+    </header>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">Overview / 概要</h2>
+      <p>
+        kabu-station Gmail OTP Helper runs on a user's local Windows PC and supports the kabu Station login flow. It reads matching Gmail authentication emails with read-only access and uses the extracted code locally for login assistance.
+      </p>
+      <p>
+        このツールは、個人のローカルPC上で動作する kabuステーションのログイン補助ツールです。Gmail API を read-only で利用し、kabuステーションのメール二要素認証コードを取得して、ローカルPC上のログイン補助フローに使用します。
+      </p>
+      <div class="panel">
+        This tool does not make trading decisions, create orders, call broker order APIs, or submit orders.
+      </div>
+    </section>
+
+    <section aria-labelledby="purpose">
+      <h2 id="purpose">Purpose / 利用目的</h2>
+      <ul>
+        <li>Retrieve email two-factor authentication codes for kabu Station login support on the user's local PC.</li>
+        <li>Support local session readiness checks after login.</li>
+        <li>Use Gmail data only for the login helper flow described on this page and in the privacy policy.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="scope">
+      <h2 id="scope">Why Gmail Readonly Is Used / Gmail readonly を使う理由</h2>
+      <p>
+        The tool needs to read a matching authentication email and extract the two-factor authentication code locally. It requests only:
+      </p>
+      <p><code>https://www.googleapis.com/auth/gmail.readonly</code></p>
+      <p>
+        The tool does not request Gmail modify access, Gmail full access, or any permission to send, delete, change, or mark messages as read.
+      </p>
+    </section>
+
+    <section aria-labelledby="accessed">
+      <h2 id="accessed">Data Accessed / 取得するデータ</h2>
+      <ul>
+        <li>Gmail message metadata such as sender, subject, received time, and unread state.</li>
+        <li>The body of matching authentication emails, read locally only for code extraction.</li>
+        <li>Gmail labels list only for a read-only credential smoke test.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="not-accessed">
+      <h2 id="not-accessed">Data Not Accessed or Modified / 取得しない・変更しないデータ</h2>
+      <ul>
+        <li>No sending, deleting, modifying, or marking Gmail messages as read.</li>
+        <li>No Gmail full access scope.</li>
+        <li>No Gmail account export or backup.</li>
+        <li>No trading decisions, order data processing, broker order API calls, or order submission.</li>
+        <li>No logging of authentication codes, email bodies, or login information.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="local">
+      <h2 id="local">Local Desktop Tool / ローカルPC上で動く個人用ツール</h2>
+      <p>
+        This tool is designed for personal use on a local desktop PC. Gmail data is not sent to a third-party server by this tool.
+      </p>
+    </section>
+
+    <footer>
+      <p>Privacy Policy: <a href="privacy.html">privacy.html</a></p>
+      <p>Support contact: <a href="mailto:harutotanaka0323@gmail.com">harutotanaka0323@gmail.com</a></p>
+    </footer>
+  </main>
+</body>
+</html>

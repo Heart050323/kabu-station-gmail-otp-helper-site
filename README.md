@@ -6,9 +6,9 @@ Publish these files to a public, verified domain before entering URLs in the Goo
 
 Expected GitHub Pages URLs after enabling Pages from the `main` branch root:
 
-- Homepage: `https://heart050323.github.io/kabu-station-gmail-otp-helper-site/`
-- Privacy Policy: `https://heart050323.github.io/kabu-station-gmail-otp-helper-site/privacy.html`
-- Terms of Service: `https://heart050323.github.io/kabu-station-gmail-otp-helper-site/terms.html`
+- Homepage: `https://oauth.heart050323.com/`
+- Privacy Policy: `https://oauth.heart050323.com/privacy.html`
+- Terms of Service: `https://oauth.heart050323.com/terms.html`
 
 Configured public contact values:
 

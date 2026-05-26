@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,21 +91,30 @@
       <p>Contact: <a href="mailto:harutotanaka0323@gmail.com">harutotanaka0323@gmail.com</a></p>
     </header>
 
-    <section aria-labelledby="collect">
-      <h2 id="collect">Information Collected / 収集する情報</h2>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Overview</h2>
       <p>
-        kabu-station-gmail-otp-helper-site runs on the user's local PC and handles the following information only for kabu Station login support:
+        kabu-station-gmail-otp-helper-site is a personal local desktop helper for kabu Station login support.
+        It uses Gmail read-only access only to find and read matching authentication emails on the user's local PC.
       </p>
+      <p>
+        This tool does not make trading decisions, create orders, call broker order APIs, or submit orders.
+      </p>
+    </section>
+
+    <section aria-labelledby="collect">
+      <h2 id="collect">Information Collected</h2>
+      <p>The tool handles the following information only for local login support:</p>
       <ul>
-        <li>Google OAuth authorized user credentials JSON stored locally.</li>
+        <li>Google OAuth authorized user credentials JSON stored locally on the user's PC.</li>
         <li>Gmail message metadata such as sender, subject, received time, and unread state.</li>
         <li>The body of matching authentication emails, read temporarily on the local PC for two-factor authentication code extraction.</li>
-        <li>Local runtime logs and session status that do not include the sensitive content listed below.</li>
+        <li>Local runtime logs and session status that do not include Gmail message bodies, authentication codes, passwords, OAuth token values, or account identifiers.</li>
       </ul>
     </section>
 
     <section aria-labelledby="gmail">
-      <h2 id="gmail">Gmail API Data Access / Gmail APIで読み取る情報</h2>
+      <h2 id="gmail">Gmail API Data Access</h2>
       <p>The tool uses only this Gmail API scope:</p>
       <p><code>https://www.googleapis.com/auth/gmail.readonly</code></p>
       <p>It reads:</p>
@@ -120,7 +129,7 @@
     </section>
 
     <section aria-labelledby="purpose">
-      <h2 id="purpose">Purpose / 利用目的</h2>
+      <h2 id="purpose">Purpose of Use</h2>
       <p>
         Gmail data is used only to extract an email two-factor authentication code locally and support the kabu Station login helper flow.
       </p>
@@ -129,8 +138,28 @@
       </p>
     </section>
 
+    <section aria-labelledby="protection">
+      <h2 id="protection">Sensitive Data Protection Mechanisms</h2>
+      <p>
+        The following security and data protection measures are used to protect Google user data and other sensitive data:
+      </p>
+      <ul>
+        <li>Data minimization: the tool requests only the Gmail read-only scope needed for the login helper flow.</li>
+        <li>Local-only processing: matching email content and extracted authentication codes are processed on the user's local PC.</li>
+        <li>No third-party server storage: this tool does not upload Gmail data, authentication codes, OAuth credentials, passwords, or account identifiers to a third-party server.</li>
+        <li>Transport protection: communication with Google APIs uses Google's HTTPS/TLS endpoints.</li>
+        <li>Local credential storage: OAuth authorized user credentials are stored in a local secrets directory on the user's PC and should be protected by the user's operating system account and file permissions.</li>
+        <li>Secret redaction: logs, session status files, documentation, and debug artifacts must not contain OAuth token values, Gmail message bodies, extracted authentication codes, passwords, account identifiers, or webhook secrets.</li>
+        <li>Limited retention: Gmail message bodies and extracted authentication codes are not stored by the tool after local extraction.</li>
+        <li>User control: users can delete the local OAuth credentials file and revoke the app's access from their Google Account at any time.</li>
+      </ul>
+      <div class="panel">
+        The implementation policy is to keep sensitive Gmail data local, minimize access, avoid persistent storage of email content or authentication codes, and prevent sensitive values from being written to logs or artifacts.
+      </div>
+    </section>
+
     <section aria-labelledby="storage">
-      <h2 id="storage">Data Storage / データ保存方針</h2>
+      <h2 id="storage">Data Storage</h2>
       <p>Stored:</p>
       <ul>
         <li>Google OAuth authorized user credentials JSON in a local-only directory on the user's PC.</li>
@@ -141,22 +170,21 @@
         <li>Extracted authentication codes.</li>
         <li>Gmail raw payload.</li>
         <li>kabu Station login information.</li>
+        <li>OAuth token values in logs or status artifacts.</li>
         <li>Broker order API requests or responses.</li>
       </ul>
-      <div class="panel">
-        The implementation policy is not to write email bodies, authentication codes, login information, or OAuth credential content to documentation, logs, status artifacts, or debug artifacts.
-      </div>
     </section>
 
     <section aria-labelledby="sharing">
-      <h2 id="sharing">No Third-Party Sharing / 第三者提供なし</h2>
+      <h2 id="sharing">No Third-Party Sharing</h2>
       <p>
-        This tool does not sell, share, or provide Gmail data to third parties. The current design is a personal local desktop tool and does not send Gmail data to a third-party server.
+        This tool does not sell, share, transfer, or disclose Gmail data to third parties.
+        The current design is a personal local desktop tool and does not send Gmail data to a third-party server.
       </p>
     </section>
 
     <section aria-labelledby="token">
-      <h2 id="token">Credential Storage and Deletion / Token保存と削除方法</h2>
+      <h2 id="token">Credential Storage and Deletion</h2>
       <p>
         OAuth authorized user credentials JSON is stored on the user's local PC in the configured secrets directory. Default example:
       </p>
@@ -167,7 +195,7 @@
     </section>
 
     <section aria-labelledby="revoke">
-      <h2 id="revoke">Revoking Google Account Access / Googleアカウント連携解除方法</h2>
+      <h2 id="revoke">Revoking Google Account Access</h2>
       <p>
         Users can remove this app's access from Google Account third-party access settings:
       </p>
@@ -183,7 +211,7 @@
         This tool is designed to comply with the Google API Services User Data Policy. Gmail data is used only for the disclosed purpose of local two-factor authentication code extraction and login support.
       </p>
       <p>
-        Gmail data is not used for advertising, is not sold to third parties, and is not intended for human review. Troubleshooting should not include email bodies, authentication codes, login information, or OAuth credential content in logs or reports.
+        Gmail data is not used for advertising, is not sold to third parties, and is not intended for human review. Troubleshooting must not include email bodies, authentication codes, login information, OAuth credential content, or other sensitive values in logs or reports.
       </p>
     </section>
 
